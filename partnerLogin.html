@@ -1,0 +1,366 @@
+<html>
+    <style>
+        body{
+            background: url(assets/images/gradient.png) no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+        }
+        .row{
+            margin: 0;
+            left: auto;
+            right: auto;
+        }
+        .rowLog{
+            margin-top: -15px;
+        }
+        h2{
+            font: 2.0em 'Yeseva One', Georgia, serif;
+            text-transform: none;
+        }
+        .rowDivider{
+            height: 20px;
+            width: 100%;
+            margin: 0;
+            margin-left: 3%;
+            
+        }
+        .rowBottom{
+            height: 40px;
+            width: 100%;
+            display: inline;
+        }
+        ul{
+            list-style: none;
+            
+        }
+        .link{
+            text-transform: none;
+            margin-right: 10px;
+            color: #fff !important;
+        }
+        .topTitle{
+            color: #fff;
+             font: 1.2em 'Yeseva One', Georgia, serif;
+            text-transform: none;
+        }
+        #signUp{
+            display: inline;
+            font-size: 10px;
+            border-right: 1px solid #000;
+            height: 10px;
+        }
+        #login{
+            display: inline;
+            font-size: 10px;
+            letter-spacing: 0em;
+            color: #000!important;
+        }
+        .bodyContainer{
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            transition: all linear 0.5s;
+        }
+        .bodyContainer.ng-hide{
+            opacity: 0;
+        }
+        .bodyContainer.ng-show{
+            opacity: 1;
+        }
+        .mainBody{
+            width: 60%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #log{
+            width: 100px;
+            height: 40px;
+            color: #fff;
+            background-color: #18444e;
+            border-style: none;
+            border-radius: 4px;
+        }
+        .logBody{
+            top: 50%;
+            background-color: #fff; 
+            height: 410px;
+            padding:43px 50px 50px;
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+            transition: all linear 0.5s;
+        }
+        .logBody.ng-hide{
+            opacity: 0;
+        }
+        .logBody.ng-show{
+            opacity: 1;
+        }
+        .topContainer{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .line{
+            display: inline;
+            width: 100%;
+            height: 20px;
+        }
+        .btn{
+            width: 60%;
+            margin-left: 20%;
+            margin-right: auto;
+            font-size: .9vw;
+        }
+        .col-sm-1{
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .col-sm-2{
+            text-align: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .verticalLineOne{
+            height: 20px;
+            width: 45%;
+            border-bottom: 2px solid #d8d8d8;
+        }
+        .divider{
+            width: 5%;
+            height: 20px;
+        }
+        .verticalLineTwo{
+            height: 20px;
+            width: 45%;
+            border-bottom: 2px solid #d8d8d8;
+        }
+        .links{
+            margin-left: 80%;
+            display: inline-block;
+        }
+        .input-group{
+            width: 100%;
+        }
+        #email, #confirmemail{
+            width: 100%;
+            height: 40px;
+            border: 2px solid #d8d8d8;
+            color: #000;
+        }
+        #password, #confirmpassword{
+            width: 100%;
+            height: 40px;
+            border: 2px solid #d8d8d8;
+            color: #000;
+        }
+        #text{
+            width: 100%;
+            height: 40px;
+            border: 2px solid #d8d8d8;
+            color: #000;
+        }
+        #largetext{
+            width: 100%;
+            height: 40px;
+            border: 2px solid #d8d8d8;
+            color: #000;
+        }
+        @media only screen and (max-width: 700px) {
+            .logBody{
+                height: 800px;
+            }
+            .btn{
+                margin-top: 20px;
+                width: 100px;
+            }
+            .verticalLineOne, .verticalLineTwo, .divider{
+                width: 30px;
+            }
+        }
+    </style>
+
+<ng-include src="'js/home/views/artistTools/_loginHeaderNavigation.html'"></ng-include>
+    
+<body>
+    <div class = "bodyContainer" ng-show="!sign">
+        <div class = "mainBody">
+        <center>
+        <h5 class ="topTitle">Turn your passion project into a veritable business instantly.</h5>
+        <h4 class ="topTitle">~</h4>
+        <h5 class ="topTitle">Manage submissions, Connect with artists, Partner with Industry Leaders and start making money.</h5>
+        </center>
+        <div class = "row">
+            <div class="links">
+            <h3><ul>
+                <li id = "signUp" ng-click="sign = true; firstPage = true"><a class="link" href="#">Apply</a></li>
+                <li id ="login"><a class="link" href="#" style="font-size: 15px; font-weight: bolder">Log In</a></li>
+            </ul>  
+            </h3>
+            </div>
+        </div>
+            <form class = "logBody">
+                <div class = "rowLog"><center><h2>Partner Log In</h2></center></div>
+                <div class = "topContainer">
+                    <div class ="input-group">
+                    <label>Email Address:</label>
+                    <br>
+                    <input id="email" type="text" placeholder="E-mail" ng-model = "logEmail" class="ng-pristine ng-touched ng-invalid" required>
+                    <br>
+                    <br>
+                    <label>Password: </label>
+                    <br>
+                    <input id="password" type="password" name="password" placeholder="Password" ng-model="logPassword" required>
+                    </div>
+                </div>
+                <div class = "rowDivider">
+                    <div class = "col-sm-2 verticalLineOne">
+                    </div>
+                    <div class = "col-sm-2 divider">
+                       <h5>Or</h5>
+                    </div>
+                    <div class = "col-sm-2 verticalLineTwo"></div>
+                </div>
+                <br>
+                <br>
+                <div class = "btmContainer">
+                    <div class = "rowBottom">
+                        <div class="col-sm-1">
+                        <button class="btn btn-default" type="button" onClick = "">Connect Via SoundCloud</button>
+                        </div>
+                        <div class="col-sm-1">
+                        <button class="btn btn-default" type="button" onClick = "">Connect Via Google</button>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <center><button id="log" value="LogIn" type ="submit" ng-disabled = "logBody.$invalid"><span>Log In</span></button></center>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Sign Form -->
+    <div class = "bodyContainer" ng-show="sign">
+        <div class = "mainBody">
+            <center>
+        <h5 class ="topTitle">Turn your passion project into a veritable business instantly.</h5>
+        <h4 class ="topTitle">~</h4>
+        <h5 class ="topTitle">Manage submissions, Connect with artists, Partner with Industry Leaders and start making money.</h5>
+            </center>
+        <div class = "row">
+            <div class="links">
+            <h3><ul>
+                <li id = "signUp"><a class ="link" href="#" style="font-size: 15px; font-weight: bolder">Apply</a></li>
+                <li id ="login" ng-click="sign = false"><a class="link" href="#">Log In</a></li>
+            </ul>  
+            </h3>
+            </div>
+        </div>
+            <form class = "logBody" style="height: 780px!important;" ng-show="firstPage">
+                <div class = "rowLog"><center><h2>Partner Apply</h2></center></div>
+                <div class = "topContainer">
+                    <div class ="input-group">
+                    <label>Email Address:</label>
+                    <br>
+                    <input id="email" type="text" placeholder="E-mail" name="email" ng-model="SUemail" class="ng-pristine ng-touched ng-invalid" required>
+                    <br>
+                    <br>
+                    <label>Confirm Email Address:</label>
+                    <br>
+                    <input id="email" type="text" placeholder="E-mail" name="confirmemail" ng-model="SUconfirmemail" class="ng-pristine ng-touched ng-invalid" required>
+                    <br>
+                    <br>
+                    <label>Password: </label>
+                    <br>
+                    <input id="password" type="password" name="password" ng-model="SUpassword" placeholder="Password"  required>
+                    <br>
+                    <br>
+                    <label>Confirm Password: </label>
+                    <br>
+                    <input id="password" type="password" name="confirmpassword" ng-model="SUconfirmpassword" placeholder="Password"  required>
+                    <br>
+                    <br>
+                    <label>Your Full Name: </label>
+                    <br>
+                    <input id="text" type="text" name="number" ng-model="name" placeholder="John Smith"  required>
+                    <br>
+                    <br>                    
+                    <label>Phone Number (Recommended): </label>
+                    <br>
+                    <input id="text" type="text" name="number" placeholder="(800)-000-0000">
+                    <br>
+                    <br>
+                    <label>You are a:</label>
+                    <br>
+                    <input id="text" type="text" placeholder="Artist or Manager" class="ng-pristine ng-touched ng-invalid" required>
+                    <br>
+                    <br>
+                    </div>
+                </div>
+                <div class = "btmContainer">
+                    <div class = "rowBottom">
+                    <br>
+                    <br>
+                    <div class="col-md-12 col-xs-12 text-center">
+                     <p style="color:red">{{error | uppercase}}</p>
+                    </div>
+                    <button style="position:absolute; right: 25%;"id="log" ng-click="clicked()" value="next" type ="submit" ng-disabled = "logBody.$invalid"><span>Next</span></button>
+                </div>
+                </div>
+            </form>
+            
+            <form class = "logBody" style="height: 680px!important;" ng-show="!firstPage">
+                <div class = "rowLog"><center><h2>Sign Up</h2></center></div>
+                <div class = "topContainer">
+                    <div class ="input-group">
+                    <label>Connect your Main Account (Soundcloud):</label>
+                    <br>
+                    <input id="text" type="text" placeholder="Account" class="ng-pristine ng-touched ng-invalid" required>
+                    <br>
+                    <br>
+                    <label>Connect your Main Account (Spotify): </label>
+                    <br>
+                    <input id="text" type="text" placeholder="Account"  required>
+                    <br>
+                    <br>
+                    <label>Link us your website: </label>
+                    <br>
+                    <input id="text" type="text" placeholder="Link" ng-model="website"  required>
+                    </div>
+                    <br>
+                    <br>
+                    <label>Tell us about yourself: </label>
+                    <br>
+                    <input id="largetext" type="text" placeholder="Info"  required>
+                    <br>
+                    <br>
+                    <label>What are you looking for (Please be honest): </label>
+                    <br>
+                    <input id="largetext" type="text" placeholder="Info"  required>
+                    <br>
+                    <br>
+                </div>
+                <div class = "btmContainer">
+                    <div class = "rowBottom">
+                    <br>
+                    <br>
+                    <br>
+                    <button ng-click = "firstPage = true" id="log" value="next" type ="submit" ng-disabled = "logBody.$invalid"><span>Previous</span></button>
+                    <button style="position:absolute; right: 25%;"id="log" value="next" type ="submit" ng-disabled = "logBody.$invalid"><span>Submit</span></button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+ 
+</body>
+
+<script src="partnerLogin.js"></script> 
+
+</html>

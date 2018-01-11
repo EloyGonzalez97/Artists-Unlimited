@@ -1,0 +1,315 @@
+<style>
+    body{
+        background: url(assets/images/gradient3.png) no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+    }
+    h4{
+        color: #fff;
+    }
+    .col-sm-3{
+        left:3%;
+        align-content: center;
+        margin: auto;
+        position: relative;
+        align-items: center;
+    }
+    .panel{
+        text-align: center;
+        align-content: center;
+        width: 200px;
+        height: 200px;
+        border: 2px solid #D3D3D3;
+        border-radius: 10px;
+    }
+    .head-title{
+        width:100%;
+        text-align: center;
+    }
+    #header{
+        color: gray;
+        font: 32px/42px 'Open Sans', Arial, sans-serif;/*2.0em 'Yeseva One', Georgia, serif;*/
+        text-transform: none;
+        font-weight: 600;
+    }
+    #headBottom{
+        color:#fff;
+        text-transform: none;
+    }
+    
+    .form-group{
+        text-align: left;
+        height: 540px;
+        left: 70%;
+        align-content: center;
+    }
+    label{
+        color: #fff;
+        display: inline-block;
+        float: left;
+        clear: left;
+        width: 250px;
+        text-align: center;
+    }
+    .imgActive{
+        zoom: 1.5;
+    }
+    input {
+        display: inline-block;
+        float: left;
+        width:300px;
+        border-style: none;
+        background-color: transparent;
+        border-bottom: 1px solid #D3D3D3;
+        color: #fff;
+    }   
+    .emailinput{
+        display: inline-block;
+        float: left;
+        width:300px;
+        border-style: none;
+        background-color: transparent;
+        border-bottom: 1px solid #D3D3D3;
+        color: #fff;
+    }
+    .signForm{
+
+        height: auto;
+        width: 700px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .container-fluid{
+        display: inline;
+        position: relative;
+    }
+    .btn{
+        height: 37px;
+        color: #fff;
+        background-color: #f42c4d;
+        border: 2px solid #f42c4d;
+        
+    }
+    .btn:hover{
+        color: #fff;
+        border: 2px solid #ff3344;
+        background-color: #ff3344;
+        -webkit-box-shadow: inset 0 0 transparent, 0 0 0 3px #ff3344;
+    }
+    .lbl-push{
+        width: 325px;
+    }
+    .row{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #lower{
+        margin-top: 30px;
+        background-color: #18444e;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        width: 80%;
+        border-radius: 4px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.3);
+    }
+    .platform-cards{
+        top: 50px;
+        padding-top: 10px;
+        position: relative;
+        background-color: #f0f5f6;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        border-radius: 4px;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.3); 
+    }
+    .platform-cards-list{
+        z-index: 1;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 0;
+        margin: 0 auto;
+        max-width: 1280px;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        list-style: none;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+            position: relative;
+    }
+    .platform-cards-list-item{
+        position: relative;
+        width: 200px;
+        height: 375px;
+        margin: 30px 10px;
+        border-radius: 3px;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+    }
+    .platform-cards-list-item:hover{
+        box-shadow: 0 0 100px 0 rgba(244,44,77,.7);
+    }
+    .highlight{
+        box-shadow: 0 0 100px 0 rgba(244,44,77,.7);
+    }
+    .platform-cards-list-item-icon{
+        left: 50%;
+        margin-top: -35px;
+    }
+    #error{
+        opacity: 0;
+        color: red;
+        font: 1.5em 'Yeseva One', Georgia, serif;
+    }
+    .formTitle{
+        margin-left: 0;
+    }
+    @media only screen and (max-width: 700px) {
+        label, .lbl-push{
+            width: 100px;
+        }
+        .formTitle{
+            font-size: 12px;
+            margin-left: -250px;
+        }
+        input, .emailinput{
+            width: 250px;
+        }
+        }
+</style>
+<html ng-controller="submitMusicController">
+<ng-include src="'js/home/views/artistTools/_loginHeaderNavigation.html'"></ng-include>
+<script src="/node_modules/angular/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+<!-- Content Start  -->
+<head>
+        <div id="anchor" class="platform-cards" ng-show="!confirmPage">
+        <div class="head-title">
+        <h1 id="header">Submit Your Music To...</h1>
+        <h5 id = "error"> Choose At least One* </h5>
+        </div>
+        <ul class="platform-cards-list">
+            <li class="platform-cards-list-item blog">
+                <div class="platform-cards-list-item-icon">
+                    <img src="js/home/views/imgs/blog_icon.png" alt="Blog" height="90" width="90">
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Blogs</h1>
+                        <br>
+                        <h4 class="h4">Expand your brand</h4>
+                        <p>
+                            Have your music be used on personal blogs and websites.
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="platform-cards-list-item record">
+                <div class="platform-cards-list-item-icon">
+                    <img src="js/home/views/imgs/record_icon.png" alt="Records" height="90" width="90">
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Record Label</h1>
+                        <br>
+                        <h4 class="h4">Expand your brand</h4>
+                        <p>
+                            Get heard by record labels and create opportunities for future success.
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="platform-cards-list-item spotify">
+                <div class="platform-cards-list-item-icon">
+                    <img src="js/home/views/imgs/spotify_icon.png" alt="Spotify" height="90" width="90">
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Spotify Curators</h1>
+                        <br>
+                        <h4 class="h4">Expand your brand</h4>
+                        <p>
+                            Send your music to Spotify administrators.
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+            <li class="platform-cards-list-item soundcloud">
+                <div class="platform-cards-list-item-icon">
+                    <img class="mod-cs" src="js/home/views/imgs/soundcloud_icon.png" alt="Soundcloud" width="90" height="90">
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Soundcloud Tastemakers</h1>
+                         <br>
+                        <h4 class="h4">Expand your brand</h4>
+                        <p>
+                            Let experts hear and analyze your music.
+                        </p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    </head>
+<body ng-controller="submitMusicController">
+    <div id="lower" ng-show="!confirmPage">
+      <div class="container-fluid" style="height: auto;">
+        <form class = "signForm" name = "signUp" ng-submit = "signUpUser()">
+        <div class = "positionForm">
+        <div class="form-group">
+            <center><h4 class="formTitle">Click on the panels above to send to those desired platforms</h4></center>
+            <br>
+            <label>Genre:</label><input type="text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Sub Genre:</label><input type = "text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Song Title:</label><input type="text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Artist Name:</label><input type="text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Featured Artists:</label><input type = "text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Is it Signed?:</label><input type="text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Your Name:</label><input type="text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Your Role:</label><input type = "text" class="ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label class = "check">Your Email:</label><input type="text" ng-model = "email" class="emailinput ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label class = "check">Confirm Email:</label><input type="text" ng-model = "confirmemail" class="emailinput ng-pristine ng-touched ng-invalid" required>
+            <br><br>
+            <label>Share Your Song:</label><input ng-if = "scPicked == true" type = "text" ng-model="soundcloudLink" placeholder="Soundcloud link"class="ng-pristine ng-touched ng-invalid" required>
+        
+            <input type = "text" ng-if = "spPicked == true" ng-model="spotifyLink" placeholder="Spotify link"class="ng-pristine ng-touched ng-invalid"  style="float: none; margin-left: 250px;" required>
+        
+            <input ng-if="fileShow == true || recordShow == true" type="file" id="myFile" style="margin-left:250px; margin-right:auto; float: none;">
+            <br><br>
+            <label class = "lbl-push"></label>
+            <button class="btn btn-default" type="submit" ng-disabled = "signUp.$invalid">Submit Music</button>
+            </div>
+            </div>
+          </form>
+        </div>
+        </div>
+    <confirmDirective ng-show="confirmPage"></confirmDirective>
+<ng-include src="'js/home/views/loader.html'"></ng-include>
+<script src="submit_music.js"></script>
+ </body>
+</html>

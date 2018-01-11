@@ -1,0 +1,102 @@
+<html>
+<style>
+    body{
+        background: url(assets/images/gradient3.png) no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+    }
+    .container{
+        width: 100%;
+        height: 100%;
+    } 
+    .row{
+        height: 100%;
+    }
+    .artistContainer{
+        margin-left: 13%;
+        float: left;
+        height: 100%;
+        width: 30%;
+    }
+    .artistInfo{
+        height: 100%;
+    }
+    .partnerContainer{
+        margin-right: 13%;;
+        float: right;
+        height: 100%;
+        width: 30%;
+    }
+    .partnerInfo{
+        height: 100%;
+    }
+    .panel{
+        background-color:#fff;
+        height: 80%;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+        border-radius: 4px;
+    }
+    .panelTitle{
+        font: 28px/42px 'Open Sans', Arial, sans-serif;/*2.0em 'Yeseva One', Georgia, serif;*/
+        text-transform: none;
+        font-weight: 600;
+    }
+    .panelBody{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%; 
+        font-size: 1vw;
+    }
+    #log{
+        width: 100px;
+        height: 40px;
+        color: #fff;
+        background-color: #308194;
+        border-style: none;
+        border-radius: 4px;
+    }
+    
+</style>
+
+<body>
+    
+    <div class = "container">
+        <div class = "row">
+        <div class = "artistContainer">
+            <div class = "artistInfo">
+                <div class = "panel">
+                    <h3 class = "panelTitle">Artists</h3>
+                    <p class = "panelBody">
+                        Sed ac mattis tellus. Curabitur tincidunt rutrum magna, non faucibus lorem iaculis ut. Sed interdum elementum urna vitae semper. Duis pulvinar diam non lectus tristique tempus. Vivamus nisl libero, vehicula sit amet ex quis, finibus elementum justo. Maecenas pulvinar turpis quis leo laoreet elementum. Suspendisse quam lacus, convallis fringilla massa quis, scelerisque sodales diam. Integer at pulvinar est. Ut malesuada egestas est. Aliquam at nulla augue. Nulla faucibus orci mauris, ut tincidunt lectus condimentum vel. Donec lectus ante, ullamcorper vitae tincidunt et, cursus ac diam. Aenean a urna imperdiet, maximus urna at, convallis mauris. Duis laoreet rutrum aliquam. Suspendisse ac venenatis lorem.    
+                    </p>
+                    <br>
+                    <center><button id="log" value="LogIn" ng-click="artist()"><span>Sign Up</span></button></center>
+                </div>
+            
+            </div>
+        
+        </div>
+        <div class = "partnerContainer">
+            <div class = "partnerInfo">
+            <div class = "panel">
+                    <h3 class = "panelTitle">Partners</h3>
+                    <p class = "panelBody">
+                        Sed ac mattis tellus. Curabitur tincidunt rutrum magna, non faucibus lorem iaculis ut. Sed interdum elementum urna vitae semper. Duis pulvinar diam non lectus tristique tempus. Vivamus nisl libero, vehicula sit amet ex quis, finibus elementum justo. Maecenas pulvinar turpis quis leo laoreet elementum. Suspendisse quam lacus, convallis fringilla massa quis, scelerisque sodales diam. Integer at pulvinar est. Ut malesuada egestas est. Aliquam at nulla augue. Nulla faucibus orci mauris, ut tincidunt lectus condimentum vel. Donec lectus ante, ullamcorper vitae tincidunt et, cursus ac diam. Aenean a urna imperdiet, maximus urna at, convallis mauris. Duis laoreet rutrum aliquam. Suspendisse ac venenatis lorem.
+                    </p>
+                    <br>
+                <center><button id="log" value="LogIn" ng-click="partner()"><span>Sign Up</span></button></center>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+<script src="signUpInfo.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,189 @@
+<style>
+    .trackTitle{
+        color: #fff;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 45px;
+        text-transform: none;
+    }
+    .btn-container{
+        align-content: center;
+        margin-right: auto;
+        margin-left: auto;
+        width: 200px;
+    }
+    .btn{
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #view{
+        height: 30px;
+        margin-top: 0;
+        font-size: 1vw;
+    }
+    .submitBtn{
+        left: 50%;
+    }
+    .platform-cards-list{
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 0;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        list-style: none;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid #d8d8d8;
+    }
+    .platform-cards-list-item{
+        position: relative;
+        width: 20%;
+        height: 200px;
+        margin: 0 0px 0px;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,0);
+    }
+    .platform-cards-list-item-icon{
+        font-weight: 400;
+        font-size: 1.2vw;
+    }
+    .trackCover{
+        border-radius: 50%;
+        width: 20%;
+        height: 50%;
+        margin-bottom: 10px;
+    }
+    .rowContainer{
+        margin-left: auto;
+        margin-right: auto;
+        width:  90%;
+        height: 200px;
+        background-color: #fff;
+        margin-bottom: 35px;
+    }
+    .h2{
+        font-size: 1.5vw;
+    }
+    .rowImage{
+        height: 300px;
+    }
+    @media only screen and (max-width: 350px) {
+        .rowContainer{
+            width: 200px;
+            height: 1080px;
+        }
+        .platform-cards-list-item, .trackCover{
+            width: 200px;
+            height: 200px;
+        }
+    }
+    .trackContainer{
+        border-radius: 10px;
+        padding-top: 30px;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.5);
+    }
+    /*
+    @media only screen and (max-width: 1200px) {
+        .rowContainer{
+            height: 100px;
+            width: 580px;
+        }
+        .platform-cards-list-item, .trackCover{
+            width: 100px;
+            height: 100px;
+        }
+        .platform-cards-list-item-icon, #view{
+            font-size: 0.8rem; 
+        }
+        .h2{
+            font-size: 1.2rem;
+        }
+        #view{
+            margin-top: -48px;
+        }
+    } */
+</style>
+<div class="container-fluid" ng-init="getTrackListFromSubmissions()">
+    
+    <div class = "trackContainer">
+    <h3 ng-if="trackList.length == 0"> No Tracks</h3>
+    <div class = "rowContainer" ng-repeat ="track in trackList">
+        <ul class="platform-cards-list">
+            <img  title = "{{track.title}}" class = "trackCover img-responsive" ng-src="{{track.artworkURL}}" />
+            <li class="platform-cards-list-item">
+                <div class="platform-cards-list-item-icon">
+                    Total: {{track.channelIDS.length}}
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Soundcloud Placements</h1>
+                        <br>
+                        <button class="btn btn-pink" id="view"><a href="javascript:void(0)" style="color:#fff !important;">View</a> </button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="platform-cards-list-item">
+                <div class="platform-cards-list-item-icon">
+                    Total: 0
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Spotify Placements</h1>
+                        <br>
+                        <br>
+                        <button class="btn btn-pink" id="view"><a href="javascript:void(0)" style="color:#fff !important;">View</a> </button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="platform-cards-list-item">
+                <div class="platform-cards-list-item-icon">
+                    Total: 0
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Blog Placements</h1>
+                        <br>
+                        <br>
+                        <button class="btn btn-pink" id="view"><a href="javascript:void(0)" style="color:#fff !important;">View</a> </button>
+                    </div>
+                </div>
+            </li>
+
+            <li class="platform-cards-list-item">
+                <div class="platform-cards-list-item-icon">
+                  Total: 0
+                </div>
+                <div class="card-contents">
+                    <div class="card-contents-top">
+                        <h1 class="h2">Label Inquiries</h1>
+                         <br>
+                        <br>
+                        <button class="btn btn-pink" id="view"><a href="javascript:void(0)" style="color:#fff !important;">View</a> </button>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+        
+        
+    
+    </div>
+    <div class = "btn-container">
+        <li class="btn btn-pink submitBtn" id="music"><a ui-sref="submitMusic" href="javascript:void(0)" style="color:#fff !important;">Submit More Music</a> 
+        </li>
+    </div>
+    </div>
+</div>
