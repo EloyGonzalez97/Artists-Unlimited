@@ -1,0 +1,712 @@
+<!--HOME : Start-->
+
+<html>
+<style>
+    .cover{
+        top: 0px;
+        left: 0;
+        width: 2000px;
+        height: 760px;
+        position: absolute;
+        z-index: -1;
+        background: rgba(29,29,31,.6);
+        visibility: visible;
+        opacity: 1;
+    }
+    video{
+        position: absolute;
+        display: block;
+        margin-top: -205px;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+        visibility: visible;
+    }
+    .videoOver{
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 75vh;
+        min-height: 100%;
+        z-index: -1;
+    }
+    img{
+        height: 100%;
+    }
+    .soundwave{
+        width: 100%;
+        opacity: 0;
+        right:-200px;
+    }
+    .slider{
+        width: 20%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        background-color: transparent;
+    }
+    .slideshow-container{
+        height: 100%;
+    }
+    .pageSlides{
+        height: 100%;
+        opacity: 1;
+    }
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+    h3{
+        font: 1000 0.8em/1.625em 'Merriweather Sans', Helvetica, sans-serif;
+        text-transform: none;
+        color: #fff;
+    }
+    p{
+      text-transform: none;
+        color: #000;  
+    }
+    .top-title{
+        z-index: 1;
+        margin-top: -450px;
+        width: 100%;
+        text-align: center;
+    }
+    .col-xs-6{
+        margin-left:auto;
+        margin-right:auto;
+        float: none;
+        width: 50%;
+        height: 50%;
+    }
+    .input-group{
+        font: 800 0.8em/1.625em 'Merriweather Sans', Helvetica, sans-serif;
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+    }
+    .row{
+        text-align: center;
+        align-content: center;
+        margin: 0;
+        height: 100%;
+    }
+    .form-control{
+        width: 400px;
+    }
+    .images{
+        left:20%;
+    }
+    ul#image li{
+        display: inline;
+    }
+    .btn{
+        font-size: 20px; 
+        margin-left: 0;
+        margin-right: auto;
+        height: 80px;
+        color: #fff;
+        width: 180px;
+        background-color: transparent;
+        border: 0.5px solid #fff;
+        border-radius: 10%;
+        transition: all 0.3s;
+        display: inline-block;
+    }
+    .btn:hover{
+        color: #fff;
+        background-color: transparent;
+        border: 0.5px solid #fff;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.3s;
+    }
+    .btn span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.3s;
+    }
+
+    .btn:hover span {
+        padding-right: 25px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+    #title{
+       top: -30px;
+        width: 100%;
+    }
+    body{
+        background: url(assets/images/blackBack.png) no-repeat;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            height: 100%;
+    }
+    /* Body Starts*/
+    
+    
+    .getHeader{
+        text-transform: none;
+        color: #fff;
+    }
+    /* Section CSS, including  the slideshows*/
+    .intro-section{
+        background-image: linear-gradient(900deg, #18444e 0%, rgba(24,68,78,0) 440px);
+        margin-top: -30px;
+        min-height: 700px;
+        border-radius: 8px;
+    }
+    .image-section{
+        height: 750px;
+        border-radius: 8px;
+    }
+    #info{
+        padding-top: 0px;
+        width: 100%;
+        height: 700px;
+        opacity: 1;
+        background-color: #fff;
+    }
+    .info-section{
+        min-height: 680px;
+        background-color: #fff;
+        border-radius: 2px;
+        opacity: 0;
+        transition: 0.4s ease-in;
+    }
+    .info-head{
+        padding-top: 10%;
+        color: #000;
+        font: 64px/1 'Chonburi', Georgia, serif;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+        font-size: 3vw;
+    }
+    .info-pgh{
+        right: -200px;
+        font: 1.25em/1.625 'Fjord One', Georgia, serif;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0;
+        font-size: 1.2vw;
+    }
+    .firstColumn{
+        width: 60%;
+    }
+    .secondColumn{
+        width: 100%;
+    }
+    .thirdColumn{
+        width: 100%;
+    }
+    fourthColumn{
+        width: 60%;
+    }
+    .pageSlides{
+        display: none
+    }
+    .slideshow-container {
+        max-width: 100%;
+        position: relative;
+        margin: auto;
+    }
+
+    .before, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 30px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+    }
+    .scroll-arrow{
+        position: fixed;
+        width: 10px;
+    }
+    .arrow-icon{
+        width: 10px;
+        height: 100px;
+    }
+    .col-sm-4{
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 50%;
+        text-align: -webkit-center;
+    }
+    .middleCol{
+        margin-top: 20%;
+    }
+    @keyframes come-in {
+        to { transform: translateY(0px); }
+    }
+
+/* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .before:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Caption text */
+    .text {
+        font:42px/42px 'Open Sans', sans-serif;/*70px/24px 'Unica One', sans-serif;/*67px/68px 'Abril Fatface', Georgia, serif;/*5em 'Yeseva One', Georgia, serif;*/
+        color: #fff;
+        letter-spacing: 0em;
+        text-align: center;
+        margin: 90px 0 40px 0;
+        text-transform: none;
+        font-size: 60px;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor:pointer;
+      height: 13px;
+      width: 13px;
+      margin: 0 2px;   
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .rowContainer{
+        margin-top: -25px;
+        z-index: 1050;
+    }
+
+    .active, .dot:hover {
+      background-color: #4ac9e7 //f8a3b2;
+    }
+    /* Fading animation */
+
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 1350px) {
+      video {height: 800px;}
+    }
+    .info-section.change1{
+        transition: 0.4s ease-in;
+        background-color: #f0f5f6; 
+        opacity: 0.5;
+    }
+    .info-pgh.slide1{
+        transform: translateX(150px);
+        animation: come-in 0.7s ease forwards;  
+        opacity: 0.5;
+    }
+    .info-head.slide1{
+        transform: translateY(150px);
+        animation: come-in 0.7s ease forwards;  
+        opacity: 0.5;
+    }
+    .slider.slide1{
+        transform: translateY(150px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.5;
+    }
+    .soundwave.slide1{
+        transform: translateX(150px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.5;
+    }
+    
+    .info-section.change2{
+        transition: 0.4s ease-in;
+        background-color: #f0f5f6; 
+        opacity: 0.6;
+    }
+    .info-pgh.slide2{
+        transform: translateX(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.6;
+    }
+    .info-head.slide2{
+        transform: translateY(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.6;
+    }
+    .slider.slide2{
+        transform: translateY(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.6;
+    }
+    .soundwave.slide2{
+        transform: translateX(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.6;
+    }
+    
+    .info-section.change3{
+        transition: 0.4s ease-in;
+        background-color: #f0f5f6; 
+        opacity: 0.8;
+    }
+    .info-pgh.slide3{
+        transform: translateX(50px);
+        animation: come-in 0.7s ease forwards;  
+        opacity: 0.8;
+    }
+    .info-head.slide3{
+        transform: translateY(50px);
+        animation: come-in 0.7s ease forwards;  
+        opacity: 0.8;
+    }
+    .slider.slide3{
+        transform: translateY(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.8;
+    }
+    .soundwave.slide3{
+        transform: translateX(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 0.8;
+    }
+    
+    .info-section.change4{
+        transition: 0.4s ease-in;
+        background-color: #f0f5f6; 
+        opacity: 1;
+    }
+    .info-pgh.slide4{
+        transform: translateX(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 1;
+    }
+    .info-head.slide4{
+        transform: translateY(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 1;
+    }
+    .slider.slide4{
+        transform: translateY(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 1;
+    }
+    .soundwave.slide4{
+        transform: translateX(50px);
+        animation: come-in 1.5s ease forwards;  
+        opacity: 1;
+    }
+    footer{
+        width: 100%;
+        height: 400px;
+        display: block;
+        background-color: #f0f5f6;
+    }
+    .footContainer{
+        height: 400px;
+    }
+    .col-sm-3{
+        margin-left: 0;
+        margin-top: 50px;
+        height: 215px;
+        width: 33.3%;
+        text-align: center;
+    }
+    .footerList{
+        text-align: center;
+    }
+    .footerLink{
+        color: #18444e;
+        cursor: pointer;
+        font-size: 1vw;
+    }
+    .footerLink:hover{
+        color: #f42c4d;
+    }
+    .footerTitle{
+        color: #308194;
+        font: 24px/42px 'Open Sans', Arial, sans-serif;/*2.0em 'Yeseva One', Georgia, serif;*/
+        text-transform: none;
+        font-weight: 600;
+        font-size: 2vw;
+    }
+    .footImage{
+        cursor: pointer;
+    }
+    .footerLine{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 220px;
+        width: 80%;
+        height: 20px;
+        border-bottom: 1px solid #308194;
+    }
+    .footCopy{
+        margin-top: 0;
+        text-align: center;
+    }
+    .imageList{
+        display: inline;
+    }
+    .imageLink{
+        display: inline;
+        padding-right: 10px;
+    }
+    @media only screen and (max-width: 780px) {
+        .firstColumn, .secondColumn, .thirdColumn, .fourthColumn{
+            width: 200px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+        footer, #info{
+            height: 800px;
+        }
+        .footContainer{
+            height: 400px;
+        }
+        .col-sm-3{
+            height: 150px;
+            margin-left: 200px;
+        }
+        .footerLine{
+            margin-top: -10px;
+        }
+        .info-section, footer{
+            margin-top: -50px;
+        }
+        video{
+            visibility: hidden;
+        }
+        .input-group{
+            margin-left: -50px;
+        }
+    }
+</style>
+<ng-include src="'js/home/views/artistTools/_homeHeaderNavigation.html'"></ng-include>
+<body>
+<div scroll id = "pageBody" class = "page-wrap" ng-controller="HomePageController">
+        <section class="intro-section">
+            <div class="videoOver">
+                <video autoplay muted loop>
+                <source src="assets/images/movie.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="top-title">
+            <h1 class="text">Make Your Dream Your Reality</h1>
+             </div>
+            <div class= "cover">
+            </div>
+            <div class="row">
+            <div class="col-xs-6">
+            <div class ="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ui-sref="submitMusic"><span>Submit Music</span></button>
+            </span>
+            </div>
+            </div>
+            </div>
+           
+    </section>
+<section class="info-section" ng-class="{change1:animate1, change2:animate2, change3:animate3, change4:animate4 }">
+    <div id="info">
+        <div class = "row">
+        <div class = "col-sm-4 firstColumn"> 
+        <h3 class = "info-head"  ng-class="{slide1:animate1, slide2:animate2, slide3:animate3, slide4:animate4 }">Artists Unlimited</h3>
+        <br> <br>
+        <p class= "info-pgh"  ng-class="{slide1:animate1, slide2:animate2, slide3:animate3, slide4:animate4 }">
+            Artists Unlimited Connects Artists to Industry Influencers of all kinds. By submitting your music here, you will directly connect to hundreds of Independent Blogs, Record Labels, Spotify Tastemakers and SoundCloud Networks..
+        </p>
+        </div>
+        <div class = "col-sm-4 secondColumn">
+        <img class = "soundwave"  ng-class="{slide1:animate1, slide2:animate2, slide3:animate3, slide4:animate4 }" src = "assets/images/soundwave.png"/>
+        </div>
+        <div class = "col-sm-4 thirdColumn">
+        <img class="slider" ng-class="{slide1:animate1, slide2:animate2, slide3:animate3, slide4:animate4 }" src = "assets/images/producer.png"/>
+            
+        </div>
+            <div class = "col-sm-4 fourthColumn">
+            <h3 class = "info-head"  ng-class="{slide1:animate1, slide2:animate2, slide3:animate3, slide4:animate4 }">Artists Unlimited</h3>
+        <br> <br>
+        <p class= "info-pgh"  ng-class="{slide1:animate1, slide2:animate2, slide3:animate3, slide4:animate4 }">
+            We offer groundbreaking applications to any Brand, Tastemaker, Label or Blog that wants to take their operations to the next level in regards to managing their submissions, expanding their reach, and increasing or creating a consistent cash flow. Your passion is music, let us help you build a business around that so that you can keep growing and turn your dream into your reality.
+        </p>
+        </div>
+        </div>
+    
+        </div>
+    
+</section>
+<section class = "image-section">
+                <div class="slideshow-container">
+                    <div class="pageSlides fade" id="img-1">
+                    <div class="numbertext">1 / 3</div>
+                        <img src="assets/images/artist1.jpg" style="width:100%">
+                    </div>
+                <div class="pageSlides fade" id="img-2">
+                    <div class="numbertext">2 / 3</div>
+                        <img src="assets/images/artist3.jpg" style="width:100%">
+                </div>
+                <div class="pageSlides fade" id="img-3">
+                    <div class="numbertext">3 / 3</div>
+                        <img src="assets/images/artist4.jpg" style="width:100%">
+                </div>
+                <a class="before" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+</section> 
+<footer>
+    <div class = "footContainter">
+        <div class = "col-sm-3">
+            <h4 class = "footerTitle">Services</h4>
+            <ul class = "footerList">
+                <br>
+                <li><a class = "footerLink">Service 1</a></li>
+                <br>
+                <li><a class = "footerLink">Service 2</a></li>
+                <br>
+                <li><a class = "footerLink">Service 3</a></li>
+                <br>
+                <li><a class = "footerLink">Service 4</a></li>
+            </ul>
+                                
+        </div>
+        <div class = "col-sm-3">
+            <h4 class = "footerTitle">Information</h4>
+            <ul class = "footerList">
+                <br>
+                <li><a class = "footerLink">About Us</a></li>
+                <br>
+                <li><a class = "footerLink">Our Mission</a></li>
+                <br>
+                <li><a class = "footerLink">Our Team</a></li>
+                <br>
+                <li><a class = "footerLink">Contact Us</a></li>
+            </ul> 
+                              
+        </div>
+        <div class = "col-sm-3">
+            <h4 class = "footerTitle">Connect With Us</h4>
+                <ul class = "imageList">
+                    <br>
+                    <li class = "imageLink"><img class = "footImage" src="assets/images/facebook_icon_footer.png" style="height: 40px; width: 40px;"></li>
+                    <li class = "imageLink"><img class = "footImage" src="assets/images/soundcloud_icon_footer.png" style="height: 40px; width: 40px;"></li>
+                    <li class = "imageLink"><img class = "footImage" src="assets/images/spotify_icon_footer.png" style="height: 40px; width: 40px;"></li>
+
+                </ul>              
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class = "footerLine">
+            
+        </div>
+        <div class = "footCopy">
+            <br>
+            &copy; Copyright 2017 Artists Unlimited
+        </div>
+    </div>
+</footer>
+<!--
+<section class = "image-section">
+                <div class="slideshow-container">
+                    <div class="pageSlides" id="img-1">
+                    <div class="numbertext">1 / 3</div>
+                        <img src="https://img.discogs.com/K9bHP9eiT-yOE_XmRshq2SC7quE=/600x500/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-485682-1377943679-8011.jpeg.jpg" style="width:100%">
+                    </div>
+                <div class="pageSlides" id="img-2">
+                    <div class="numbertext">2 / 3</div>
+                        <img src="http://edutouraustralia.com/wp/wp-content/uploads/London-Singer-600x500.jpg" style="width:100%">
+                </div>
+                <div class="pageSlides" id="img-3">
+                    <div class="numbertext">3 / 3</div>
+                        <img src="http://static.gigwise.com/artists/williambritney.jpg" style="width:100%">
+                </div>
+                <a class="before" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            <div class="row" style="background-color:black">
+            <div style="text-align:center; padding-top: 8px">
+               <label class="dot" onclick="currentSlide(1)" for="img-1"></label> 
+               <label class="dot" onclick="currentSlide(2)" for="img-2"></label> 
+               <label class="dot" onclick="currentSlide(3)" for="img-3"></label> 
+            </div>
+        </div>
+</section> 
+<!-- Created script inside the html in order to use document-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>   
+    // slideshow logic, allows for automatic switch also previous and next buttons
+    var slideIndex = 2;
+    showDivs(slideIndex);
+    showSlides()
+
+    function plusSlides(n) {
+        showDivs(slideIndex += n);
+    }
+    function currentSlide(n){
+        showDivs(n);
+    }
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("pageSlides");
+        if (n > x.length) {slideIndex = 1} 
+        if (n < 1) {slideIndex = x.length} ;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block"; 
+    }
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("pageSlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        slideIndex++;
+        if (slideIndex> slides.length) {slideIndex = 1} 
+        slides[slideIndex-1].style.display = "block"; 
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+}
+
+</script>
+</div>
+</body>
+</html>
+<!--HOME : End-->
